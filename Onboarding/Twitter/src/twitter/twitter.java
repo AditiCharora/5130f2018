@@ -16,9 +16,25 @@ public class FirstTwitterApp {
 
 		ConfigurationBuilder cf = new ConfigurationBuilder();
 		cf.setDebugEnabled(true)
-			.setOAuthConsumerKey("*********************")
-			.setOAuthConsumerSecret("2********************")
-			.setOAuthAccessToken("************************************************************")
-			.setOAuthAccessTokenSecret("************************************************************");
+		.setOAuthConsumerKey("*********************")
+		.setOAuthConsumerSecret("2********************")
+		.setOAuthAccessToken("************************************************************")
+		.setOAuthAccessTokenSecret("************************************************************");
 
-  }
+		TwitterFactory tf= new TwitterFactory(cf.build());
+		twitter4j.Twitter twitter= tf.getInstance();
+
+			List<Status> status = null;
+			try {
+				status = twitter.getHomeTimeline();
+			} catch (TwitterException e) {
+				e.printStackTrace();
+			}
+			for(Status st :status)
+			{
+				System.out.println(st.getUser().getName()+"-------------------"+st.getText());
+			}
+
+		}
+	}
+}
