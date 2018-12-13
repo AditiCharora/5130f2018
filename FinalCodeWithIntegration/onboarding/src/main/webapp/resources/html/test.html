@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>AditiDashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "stylesheet"href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+  <style>
+  @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+  }
+  @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+  .fa-2x {
+  font-size: 2em;
+  }
+  .fa {
+  position: relative;>
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size:20px;
+  }
+
+
+  .main-menu:hover,nav.main-menu.expanded {
+  width:200px;
+  overflow:visible;
+  }
+
+  .main-menu {
+  background:#212121;
+  border-right:1px solid #e5e5e5;
+  position:absolute;
+  top:0;
+  bottom:0;
+  height:100%;
+  left:0;
+  width:60px;
+  overflow:hidden;
+  -webkit-transition:width .05s linear;
+  transition:width .05s linear;
+  -webkit-transform:translateZ(0) scale(1,1);
+  z-index:1000;
+  }
+
+  .main-menu>ul {
+  margin:7px 0;
+  }
+
+  .main-menu li {
+  position:relative;
+  display:block;
+  width:200px;
+  }
+
+  .main-menu li>a {
+  position:relative;
+  display:table;
+  border-collapse:collapse;
+  border-spacing:0;
+  color:#999;
+   font-family: arial;
+  font-size: 14px;
+  text-decoration:none;
+  -webkit-transform:translateZ(0) scale(1,1);
+  -webkit-transition:all .1s linear;
+  transition:all .1s linear;
+
+  }
+
+  .main-menu .nav-icon {
+  position:relative;
+  display:table-cell;
+  width:60px;
+  height:36px;
+  text-align:center;
+  vertical-align:middle;
+  font-size:18px;
+  }
+
+  .main-menu .nav-text {
+  position:relative;
+  display:table-cell;
+  vertical-align:middle;
+  width:190px;
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+  .main-menu>ul.logout {
+  position:absolute;
+  left:0;
+  bottom:0;
+  }
+
+  .no-touch .scrollable.hover {
+  overflow-y:hidden;
+  }
+
+  .no-touch .scrollable.hover:hover {
+  overflow-y:auto;
+  overflow:visible;
+  }
+
+  a:hover,a:focus {
+  text-decoration:none;
+  }
+
+  nav {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+  }
+
+  nav ul,nav li {
+  outline:0;
+  margin:0;
+  padding:0;
+  }
+  .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+  color:#fff;
+  background-color:#5fa2db;
+  }
+  .area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+  }
+  </style>
+</head>
+<body>
+      <div layout="row">
+          <div flex>
+              <div class="area"></div>
+                <nav class="main-menu">
+                  <ul>
+                    <li>
+                        <a href="http://justinfarrow.com">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="nav-text">
+                                Dashboard
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a href="#">
+                            <i class="fa fa-envelope fa-2x"></i>
+                            <span class="nav-text">
+                                Streams
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a href="#">
+                           <i class="fa fa-list fa-2x"></i>
+                            <span class="nav-text">
+                                Publisher
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a href="#">
+                           <i class="fa fa-cog fa-2x"></i>
+                            <span class="nav-text">
+                                Settings
+                            </span>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <ul class="logout">
+                    <li>
+                       <a href="#">
+                             <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">
+                                Logout
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+      <div flex="95">
+        <div ng-controller="testController" ng-cloak>
+            <md-content class="md-padding">
+              <md-tabs md-dynamic-height md-selected="data.selectedIndex">
+                <md-tab id="tab1">
+                  <md-tab-label>Viewing</md-tab-label>
+                    <md-tab-body>
+                      <div class="row" flex>
+                           <div class="col col-33">
+                               <md-divider></md-divider>
+                             <md-card>
+                                    <md-card-header>
+                                        <md-card-avatar>
+                                                <img class="md-user-avatar" src="/resources/img/icons/twitter.png"/>
+                                        </md-card-avatar>
+                                        <md-card-header-text>
+                                            <span class="md-title">Home</span>
+                                            <span class="md-subhead">Aditi</span>
+                                        </md-card-header-text>
+                                      </md-card-header>
+                                      <md-card-actions layout="row" layout-align="end center">
+                                          <md-button class="md-icon-button" aria-label="Favorite">
+                                              <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                          </md-button>
+                                          <md-button class="md-icon-button" aria-label="Settings">
+                                              <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                          </md-button>
+                                          <md-button class="md-icon-button" aria-label="Share">
+                                              <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                            </md-button>
+                                        </md-card-actions>
+                                  </md-card>
+                                  <md-divider></md-divider>
+                                  <md-card>
+                                         <md-card-header>
+                                             <md-card-avatar>
+                                                     <img class="md-user-avatar" src="/resources/img/icons/twitter.png"/>
+                                             </md-card-avatar>
+                                             <md-card-header-text>
+                                                 <span class="md-title">Home</span>
+                                                 <span class="md-subhead">Aditi</span>
+                                             </md-card-header-text>
+                                           </md-card-header>
+                                           <md-card-actions layout="row" layout-align="end center">
+                                               <md-button class="md-icon-button" aria-label="Favorite">
+                                                   <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                               </md-button>
+                                               <md-button class="md-icon-button" aria-label="Settings">
+                                                   <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                               </md-button>
+                                               <md-button class="md-icon-button" aria-label="Share">
+                                                   <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                 </md-button>
+                                             </md-card-actions>
+                                       </md-card>
+                                       <md-divider></md-divider>
+                                       <md-card>
+                                              <md-card-header>
+                                                  <md-card-avatar>
+                                                          <img class="md-user-avatar" src="/resources/img/icons/twitter.png"/>
+                                                  </md-card-avatar>
+                                                  <md-card-header-text>
+                                                      <span class="md-title">Home</span>
+                                                      <span class="md-subhead">Aditi</span>
+                                                  </md-card-header-text>
+                                                </md-card-header>
+                                                <md-card-actions layout="row" layout-align="end center">
+                                                    <md-button class="md-icon-button" aria-label="Favorite">
+                                                        <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                    </md-button>
+                                                    <md-button class="md-icon-button" aria-label="Settings">
+                                                        <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                    </md-button>
+                                                    <md-button class="md-icon-button" aria-label="Share">
+                                                        <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                      </md-button>
+                                                  </md-card-actions>
+                                            </md-card>
+                                </div>
+
+                          <div class="col col-33">
+                                <md-card>
+                                      <md-card-header>
+                                        <md-card-avatar>
+                                                <img class="md-user-avatar" src="/resources/img/icons/linkedin.png"/>
+                                        </md-card-avatar>
+                                        <md-card-header-text>
+                                            <span class="md-title">Home</span>
+                                            <span class="md-subhead"> Aditi</span>
+                                        </md-card-header-text>
+                                        </md-card-header>
+                                        <md-card-actions layout="row" layout-align="end center">
+                                                  <md-button class="md-icon-button" aria-label="Favorite">
+                                                      <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                  </md-button>
+                                                  <md-button class="md-icon-button" aria-label="Settings">
+                                                      <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                  </md-button>
+                                                  <md-button class="md-icon-button" aria-label="Share">
+                                                      <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                  </md-button>
+                                        </md-card-actions>
+                                      </md-card>
+                                    <md-divider></md-divider>
+
+                                      <md-card>
+                                            <md-card-header>
+                                              <md-card-avatar>
+                                                      <img class="md-user-avatar" src="/resources/img/icons/linkedin.png"/>
+                                              </md-card-avatar>
+                                              <md-card-header-text>
+                                                  <span class="md-title">Home</span>
+                                                  <span class="md-subhead"> Aditi</span>
+                                              </md-card-header-text>
+                                              </md-card-header>
+                                              <md-card-actions layout="row" layout-align="end center">
+                                                        <md-button class="md-icon-button" aria-label="Favorite">
+                                                            <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                        </md-button>
+                                                        <md-button class="md-icon-button" aria-label="Settings">
+                                                            <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                        </md-button>
+                                                        <md-button class="md-icon-button" aria-label="Share">
+                                                            <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                        </md-button>
+                                              </md-card-actions>
+                                            </md-card>
+                                            <md-divider></md-divider>
+                                            <md-card>
+                                                  <md-card-header>
+                                                    <md-card-avatar>
+                                                            <img class="md-user-avatar" src="/resources/img/icons/linkedin.png"/>
+                                                    </md-card-avatar>
+                                                    <md-card-header-text>
+                                                        <span class="md-title">Home</span>
+                                                        <span class="md-subhead"> Aditi</span>
+                                                    </md-card-header-text>
+                                                    </md-card-header>
+                                                    <md-card-actions layout="row" layout-align="end center">
+                                                              <md-button class="md-icon-button" aria-label="Favorite">
+                                                                  <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                              </md-button>
+                                                              <md-button class="md-icon-button" aria-label="Settings">
+                                                                  <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                              </md-button>
+                                                              <md-button class="md-icon-button" aria-label="Share">
+                                                                  <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                              </md-button>
+                                                    </md-card-actions>
+                                                  </md-card>
+                                    </div>
+
+                         <div class="col col-33">
+                                  <md-card>
+                                      <md-card-header>
+                                            <md-card-avatar>
+                                                    <img class="md-user-avatar" src="/resources/img/icons/facebook.png"/>
+                                              </md-card-avatar>
+                                              <md-card-header-text>
+                                                  <span class="md-title">Home</span>
+                                                  <span class="md-subhead"> Aditi</span>
+                                              </md-card-header-text>
+                                        </md-card-header>
+                                        <md-card-actions layout="row" layout-align="end center">
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Settings">
+                                                    <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Share">
+                                                    <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                </md-button>
+                                        </md-card-actions>
+                                      </md-card>
+                                    <md-divider></md-divider>
+                                      <md-card>
+                                          <md-card-header>
+                                                <md-card-avatar>
+                                                        <img class="md-user-avatar" src="/resources/img/icons/facebook.png"/>
+                                                  </md-card-avatar>
+                                                  <md-card-header-text>
+                                                      <span class="md-title">Home</span>
+                                                      <span class="md-subhead"> Aditi</span>
+                                                  </md-card-header-text>
+                                            </md-card-header>
+                                            <md-card-actions layout="row" layout-align="end center">
+                                                    <md-button class="md-icon-button" aria-label="Favorite">
+                                                        <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                    </md-button>
+                                                    <md-button class="md-icon-button" aria-label="Settings">
+                                                        <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                    </md-button>
+                                                    <md-button class="md-icon-button" aria-label="Share">
+                                                        <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                    </md-button>
+                                            </md-card-actions>
+                                          </md-card>
+                                    <md-divider></md-divider>
+                                          <md-card>
+                                              <md-card-header>
+                                                    <md-card-avatar>
+                                                            <img class="md-user-avatar" src="/resources/img/icons/facebook.png"/>
+                                                      </md-card-avatar>
+                                                      <md-card-header-text>
+                                                          <span class="md-title">Home</span>
+                                                          <span class="md-subhead"> Aditi</span>
+                                                      </md-card-header-text>
+                                                </md-card-header>
+                                                <md-card-actions layout="row" layout-align="end center">
+                                                        <md-button class="md-icon-button" aria-label="Favorite">
+                                                            <md-icon md-svg-icon="/resources/img/icons/favorite.svg"></md-icon>
+                                                        </md-button>
+                                                        <md-button class="md-icon-button" aria-label="Settings">
+                                                            <md-icon md-svg-icon="/resources/img/icons/menu.svg"></md-icon>
+                                                        </md-button>
+                                                        <md-button class="md-icon-button" aria-label="Share">
+                                                            <md-icon md-svg-icon="/resources/img/icons/reply.svg"></md-icon>
+                                                        </md-button>
+                                                </md-card-actions>
+                                              </md-card>
+
+
+                                    </div>
+                    </div>
+                  </md-tab-body>
+                </md-tab>
+                <md-tab id="tab2">
+                  <md-tab-label>Posting</md-tab-label>
+                  <md-tab-body>
+
+                  <div style="border-style:solid;">
+                    <div layout="row">
+                      <div flex>
+                        <textarea cols="50" rows="4" name="comment">
+                        </textarea>
+                      </div>
+                      <div flex="80">
+                        <button type="button" onclick="alert('message sent !')">Post</button>
+                      </div>
+                    </div>
+                    <div layout="row">
+                      <div flex>
+                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                      </div>
+                      <div flex>
+                        <input type = "file" file-model = "myFile"/>
+                    </div>
+                  </div>
+
+                  <md-divider></md-divider>
+
+                  <div layout="row">
+                    <div flex>
+                      <md-toolbar class = "md-primary">
+                          <div class="md-toolbar-tools">
+                            <div class="input-container">
+                                  <input class="input-field" style="font-size:15px;" type="text" placeholder="Attach link..">
+                                  <button class="btn">
+                                   <i class="material-icons">attach_file</i>
+                                  </button>
+                            </div>
+                            <span flex></span>
+                            <md-button class="md-raised md-accent md-hue-3" aria-label="send">
+                              <md-icon md-svg-icon="/resources/img/icons/send.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-raised md-accent md-hue-3" aria-label="schedule">
+                              <md-icon md-svg-icon="/resources/img/icons/schedule.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-raised md-accent md-hue-3" aria-label="location_on">
+                              <md-icon md-svg-icon="/resources/img/icons/location_on.svg"></md-icon>
+                            </md-button>
+                            </md-toolbar>
+                          </div>
+                        </md-toolbar>
+
+                    </div>
+
+                  </div>
+
+                </div>
+                </md-tab-body>
+                </md-tab>
+                <md-tab id="tab3">
+                  <md-tab-label>settings</md-tab-label>
+                  <md-tab-body>
+                      <div class="md-headline"style="font-size:20px;">Private Social Networks</div>
+                      <div class="md-subhead"style="font-size:15px;">These are the social networks that only you can view and post to.</div>
+
+                      <div>
+
+                        <div layout="row">
+                            <div flex>
+                                  <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                                      <md-icon md-svg-icon="/resources/img/icons/roundAdd.svg"></md-icon>
+                                        Private Network
+                                      </md-button>
+                            </div>
+
+                            <div flex>
+                                    <md-button class="md-raised md-primary">
+                                        <md-icon md-svg-icon="/resources/img/icons/roundAdd.svg"></md-icon>
+                                          Twitter
+                                    </md-button>
+                            </div>
+
+                            <div flex>
+                                    <md-button class="md-raised md-primary">
+                                      <md-icon md-svg-icon="/resources/img/icons/roundAdd.svg"></md-icon>
+                                        Linkedin
+                                    </md-button>
+                            </div>
+
+                          <div flex>
+                                  <div layout="row" style="border-style:solid;">
+                                                  <div flex="80">
+                                                          <md-button class="md-raised md-primary">
+                                                            <md-icon md-svg-icon="/resources/img/icons/roundAdd.svg"></md-icon>
+                                                                facebook
+                                                            </md-button>
+                                                  </div>
+                                                  <div flex="20">
+                                                            <md-menu>
+                                                              <md-button aria-label = "Sample Menu" class = "md-icon-button" ng-click = "$mdOpenMenu($event)">
+                                                                <md-icon md-menu-origin class = "material-icons">settings</md-icon>
+                                                                </md-button>
+                                                                <md-menu-content width="4">
+                                                                  <md-menu-item>
+                                                                    <md-button>
+                                                                        Share
+                                                                    </md-button>
+                                                                  </md-menu-item>
+                                                                  <md-menu-item>
+                                                                    <md-button>
+                                                                       Sync
+                                                                    </md-button>
+                                                                  </md-menu-item>
+                                                                  <md-menu-divider></md-menu-divider>
+                                                                  <md-menu-item>
+                                                                    <md-button>
+                                                                        Remove from umass lowell
+                                                                    </md-button>
+                                                                  </md-menu-item>
+                                                                </md-menu-content>
+                                                              </md-menu>
+                                                    </div>
+                                          </div>
+                                </div>
+                        </div>
+                      </div>
+                  </md-tab-body>
+                </md-tab>
+              </md-tabs>
+            </md-content>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

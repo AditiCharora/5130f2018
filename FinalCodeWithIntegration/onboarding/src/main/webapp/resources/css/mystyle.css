@@ -1,0 +1,16 @@
+
+body{
+
+  margin: 0;
+  padding: 0;
+  background: #313131;
+  font-family: sans-serif;
+}
+#myHeader{
+   display: inline;
+  margin: auto;
+  border-style: solid;
+   border-width: thin;
+   border-collapse: separate;
+   border-spacing: 5px 5px;
+}
