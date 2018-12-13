@@ -1,0 +1,5 @@
+debug=true
+oauth.appId=186055028795159
+oauth.appSecret=f2d90ce338ea77d3232563730e724393
+oauth.permissions=email,publish_stream
+jsonStoreEnabled=true
