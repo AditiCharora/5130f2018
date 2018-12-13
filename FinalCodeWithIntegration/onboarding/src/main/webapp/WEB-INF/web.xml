@@ -1,0 +1,103 @@
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/spring/contextxml/application-context.xml</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>defaultHtmlEscape</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+<!-- 	<context-param>   -->
+<!--  		 <param-name>log4jConfigLocation</param-name>   -->
+<!--   		 <param-value>/WEB-INF/classes/log4j.xml</param-value>   -->
+<!-- 	</context-param> -->
+
+    <listener>  
+  		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>  
+	</listener> 
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/spring/contextxml/dispatcher-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+   	 	 <servlet-name>signin</servlet-name>
+   		 <servlet-class>facebook4j.examples.signin.SignInServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   	 	<servlet-name>signin</servlet-name>
+   		 <url-pattern>/signin</url-pattern>
+ 	 </servlet-mapping>
+ 	 
+ 	 <!-- for twitter  -->
+	<servlet>
+   	 	 <servlet-name>twitter</servlet-name>
+   		 <servlet-class>facebook4j.examples.signin.FirstTwitterApp</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   	 	<servlet-name>twitter</servlet-name>
+   		 <url-pattern>/twitter</url-pattern>
+ 	 </servlet-mapping> 	 
+ 	 
+ 	  <servlet>
+   		 	<servlet-name>callback</servlet-name>
+    		<servlet-class>facebook4j.examples.signin.CallbackServlet</servlet-class>
+  	 </servlet>
+  	<servlet-mapping>
+    		<servlet-name>callback</servlet-name>
+    		<url-pattern>/callback</url-pattern>
+  	</servlet-mapping>
+  
+  	 <servlet>
+    	<servlet-name>logout</servlet-name>
+    	<servlet-class>facebook4j.examples.signin.LogoutServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>logout</servlet-name>
+    	<url-pattern>/logout</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>tokenInfo</servlet-name>
+    	<servlet-class>facebook4j.examples.signin.TokenInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    		<servlet-name>tokenInfo</servlet-name>
+    		<url-pattern>/tokenInfo</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+   		 <servlet-name>post</servlet-name>
+    	 <servlet-class>facebook4j.examples.signin.PostServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    		<servlet-name>post</servlet-name>
+    		<url-pattern>/post</url-pattern>
+  </servlet-mapping>
+  	
+  	<error-page>
+    <exception-type>facebook4j.FacebookException</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+	
+  	<display-name>On-boarding</display-name>
+</web-app>
