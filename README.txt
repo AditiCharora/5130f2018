@@ -1,6 +1,10 @@
                                                Internet and Web Systems-1
-In this project I have integrated the 3 social platforms LinkedIn, Facebook and Twitter. I have also created a User Interface which looks like a dashboard and there I have integrated the platforms. You can choose any of the 3 platform on which you want to work. If you click on any of the platform it will take you to that respective platform where you have to fill your username and password to get into your profile. 
-After the proper understanding of how these platforms are integrated using oauth I have integrated the three-platform step by step using the guide provided by these websites which I have mentioned below and according to what functionality I needed in my project. Also, I have gone through some YouTube videos for integrating spring project with angularJs. 
+In this project I have integrated the 3 social platforms LinkedIn, Facebook and Twitter. I have also created a User Interface
+which looks like a dashboard and there I have integrated the platforms. You can choose any of the 3 platform on which you want to work. 
+If you click on any of the platform it will take you to that respective platform where you have to fill your username and password to get into your profile. 
+After the proper understanding of how these platforms are integrated using oauth I have integrated the three-platform step by step
+using the guide provided by these websites which I have mentioned below and according to what functionality I needed in my project.
+Also, I have gone through some YouTube videos for integrating spring project with angularJs. 
 
 Please find the references below which I have used for the completion of the project:
 
